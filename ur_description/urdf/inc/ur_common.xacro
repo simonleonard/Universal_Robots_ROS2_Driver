@@ -210,6 +210,20 @@
     <xacro:property name="wrist_3_collision_mesh" value="${wrist_3_mesh['collision']['mesh']}" scope="parent"/>
     <xacro:property name="wrist_3_visual_offset" value="${wrist_3_mesh['visual_offset']}" scope="parent"/>
 
+    <xacro:property name="holder_mesh" value="${sec_mesh_files['holder']}"/>
+    <xacro:property name="holder_visual_mesh" value="${holder_mesh['visual']['mesh']}" scope="parent"/>
+    <xacro:property name="holder_collision_mesh" value="${holder_mesh['collision']['mesh']}" scope="parent"/>
+    <xacro:property name="holder_visual_offset" value="${holder_mesh['visual_offset']}" scope="parent"/>
+    <xacro:property name="holder_visual_material_name" value="${holder_mesh['visual']['material']['name']}" scope="parent"/>
+    <xacro:property name="holder_visual_material_color" value="${holder_mesh['visual']['material']['color']}" scope="parent"/>
+
+    <xacro:property name="needle_mesh" value="${sec_mesh_files['needle']}"/>
+    <xacro:property name="needle_visual_mesh" value="${needle_mesh['visual']['mesh']}" scope="parent"/>
+    <xacro:property name="needle_collision_mesh" value="${needle_mesh['collision']['mesh']}" scope="parent"/>
+    <xacro:property name="needle_visual_offset" value="${needle_mesh['visual_offset']}" scope="parent"/>
+    <xacro:property name="needle_visual_material_name" value="${needle_mesh['visual']['material']['name']}" scope="parent"/>
+    <xacro:property name="needle_visual_material_color" value="${needle_mesh['visual']['material']['color']}" scope="parent"/>
+
     <!--KINEMATICS HASH-->
     <xacro:property name="kinematics_hash" value="${sec_kinematics['hash']}" scope="parent"/>
   </xacro:macro>

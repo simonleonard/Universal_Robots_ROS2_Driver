@@ -347,6 +347,57 @@
       <origin xyz="0 0 0" rpy="0 ${-pi/2.0} ${-pi/2.0}" />
     </joint>
 
+    <link name="${prefix}holder">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${holder_visual_mesh}"/>
+        </geometry>
+        <material name="${holder_visual_material_name}">
+          <color rgba="${holder_visual_material_color}"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${holder_visual_offset}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${holder_collision_mesh}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}wrist_3-holder" type="fixed">
+        <parent link="${prefix}wrist_3_link" />
+        <child link="${prefix}holder" />
+        <origin xyz="0 0 0" rpy="0 ${-pi} 0" />
+    </joint>
+
+    <link name="${prefix}needle">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${needle_visual_mesh}"/>
+        </geometry>
+        <material name="${needle_visual_material_name}">
+          <color rgba="${needle_visual_material_color}"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 ${needle_visual_offset}" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="${needle_collision_mesh}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}holder-needle" type="prismatic">
+        <parent link="${prefix}holder" />
+        <child link="${prefix}needle" />
+        <origin xyz="0 0 -0.1475" rpy="${-pi/2.0} 0 0" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="0.1"
+               effort="-5" velocity="0.01"/>
+    </joint>
+
     <!-- ROS-Industrial 'tool0' frame - all-zeros tool frame -->
     <link name="${prefix}tool0"/>
     <joint name="${prefix}flange-tool0" type="fixed">
